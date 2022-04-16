@@ -8,7 +8,7 @@ import (
 
 type model struct {
 	choices  []string
-	choice string
+	choice   string
 	cursor   int
 	selected map[int]struct{}
 }

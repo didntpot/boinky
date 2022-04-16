@@ -7,9 +7,7 @@ import (
 	"log"
 )
 
-var songs = []*nbs.Song{
-
-}
+var songs = []*nbs.Song{}
 
 type MusicPlayer struct {
 	Module
@@ -26,4 +24,3 @@ type MusicPlayer struct {
 func (m *MusicPlayer) Start(addr string) {}
 
 func (m *MusicPlayer) Quit() {}
-

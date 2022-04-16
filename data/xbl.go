@@ -12,7 +12,7 @@ import (
 )
 
 var (
-	TokenSrc  oauth2.TokenSource
+	TokenSrc oauth2.TokenSource
 )
 
 type jsonToken struct {

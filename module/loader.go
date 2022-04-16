@@ -13,14 +13,14 @@ func DefaultLoader(l *log.Logger) *Loader {
 			name:  "Bot",
 			msg:   "This server has been invaded by the horny squad!",
 			limit: 1000,
-			spam: *atomic.NewBool(true),
-			kill: *atomic.NewBool(false),
+			spam:  *atomic.NewBool(true),
+			kill:  *atomic.NewBool(false),
 			conns: []*minecraft.Conn{},
-			l: l,
+			l:     l,
 		},
 		cr: &ChatReader{
 			kill: *atomic.NewBool(false),
-			l: l,
+			l:    l,
 		},
 	}
 }

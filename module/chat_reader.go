@@ -28,10 +28,10 @@ type ChatReader struct {
 func (m *ChatReader) Start(addr string) {
 	s := bufio.NewScanner(os.Stdin)
 	conn, err := minecraft.Dialer{
-		ClientData:        login.ClientData{},
+		ClientData:  login.ClientData{},
 		TokenSource: data.TokenSrc,
 	}.Dial("raknet", addr)
-	
+
 	m.conn = conn
 
 	if err != nil {
@@ -51,12 +51,12 @@ func (m *ChatReader) Start(addr string) {
 	go func() {
 		for {
 			pk, _ := conn.ReadPacket()
-		
+
 			if err != nil {
 				m.l.Println(err)
 				return
 			}
-			
+
 			if text, ok := pk.(*packet.Text); ok && !text.NeedsTranslation {
 				fmt.Println(util.MinecraftToAscii(text.Message) + ansi.Reset)
 			}

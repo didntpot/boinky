@@ -17,7 +17,7 @@ type BotSpammer struct {
 	Module
 
 	name  string
-	msg string
+	msg   string
 	limit int
 
 	spam atomic.Bool
@@ -43,7 +43,6 @@ func (m *BotSpammer) Start(addr string) {
 				ErrorLog: m.l,
 			}.Dial("raknet", addr)
 
-			
 			if err != nil {
 				m.l.Println(err)
 				return
@@ -69,11 +68,11 @@ func (m *BotSpammer) Start(addr string) {
 
 				if m.spam.Load() == true {
 					conn.WritePacket(&packet.Text{
-						TextType: packet.TextTypeChat,
+						TextType:   packet.TextTypeChat,
 						SourceName: m.name,
-						Message: m.msg,
+						Message:    m.msg,
 					})
-				}				
+				}
 
 			}
 		}(i)
