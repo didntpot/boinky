@@ -50,8 +50,22 @@ func main() {
 			}
 			addr := args[1]
 			l.BotSpammer().Start(addr)
+		case "skinsteal":
+			if len(args) < 2 {
+				log.Println("Please specify an <ip:port> to connect to.")
+				continue
+			}
+			addr := args[1]
+			l.SkinStealer().Start(addr)
+		case "autotext":
+			if len(args) < 2 {
+				log.Println("Please specify an <ip:port> to connect to.")
+				continue
+			}
+			addr := args[1]
+			l.AutoText().Start(addr)
 		case "help":
-			fmt.Println("chat <ip:port> - A module to chat in a Minecraft server without logging into the server yourself\nbot <ip:port> - A module to bot MCPE servers (only if they have XUID verification disabled)")
+			fmt.Println("chat <ip:port> - A module to chat in a Minecraft server without logging into the server yourself\nbot <ip:port> - A module to bot MCPE servers (only if they have XUID verification disabled)\nautotext <ip:port> - A module to automatically send a sequential set of messages/commands to the server\nskinsteal <ip:port> - allows users to download all the skins of the players of the server that the user wants to")
 			continue
 		default:
 			log.Printf("\"%s\" - Unknown command.\n", cmd)

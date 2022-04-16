@@ -1,6 +1,7 @@
 package util
 
 import (
+	"regexp"
 	"strings"
 
 	"github.com/mgutz/ansi"
@@ -39,4 +40,9 @@ func MinecraftToAscii(minecraft string) string {
 		minecraft = strings.ReplaceAll(minecraft, key, value)
 	}
 	return minecraft
+}
+
+var re = regexp.MustCompile(`(?i)§[0-9A-GK-OR]`)
+func StripColor(msg string) string {
+	return re.ReplaceAllString(msg, "")
 }

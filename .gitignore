@@ -1,4 +1,5 @@
-./token.json
-./main.exe
+token.json
+main.exe
 .vscode/
 .idea/
+skins/

@@ -31,7 +31,7 @@ type BotSpammer struct {
 func (m *BotSpammer) Start(addr string) {
 	s := bufio.NewScanner(os.Stdin)
 	for i := 1; i != m.limit; i++ {
-		if m.kill.Load() == true {
+		if m.kill.Load() {
 			break
 		}
 		go func(i int) {

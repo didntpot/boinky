@@ -22,12 +22,23 @@ func DefaultLoader(l *log.Logger) *Loader {
 			kill: *atomic.NewBool(false),
 			l:    l,
 		},
+		ss: &SkinStealer{
+			kill:   *atomic.NewBool(false),
+			l:      l,
+		},
+		at: &AutoText{
+			kill:   *atomic.NewBool(false),
+			texts:  []string{"help"},
+			l:      l,
+		},
 	}
 }
 
 type Loader struct {
 	bs *BotSpammer
 	cr *ChatReader
+	ss *SkinStealer
+	at *AutoText
 }
 
 func (l *Loader) BotSpammer() *BotSpammer {
@@ -36,4 +47,12 @@ func (l *Loader) BotSpammer() *BotSpammer {
 
 func (l *Loader) ChatReader() *ChatReader {
 	return l.cr
+}
+
+func (l *Loader) SkinStealer() *SkinStealer {
+	return l.ss
+}
+
+func (l *Loader) AutoText() *AutoText {
+	return l.at
 }
