@@ -30,6 +30,6 @@ boinky comes with some cool tools/exploits out of the box
 <br/>
 
 ### cadet on top !
-### start the repo and use the toolkit!
+### star the repo and use the toolkit!
 
 
